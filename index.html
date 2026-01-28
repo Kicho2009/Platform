@@ -1,59 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Octothorp Integrated Solutions</title>
+  <meta charset="UTF-8" />
+  <title>Octothorp – Integrated Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #0b1220;
+      color: #e6ebf2;
+    }
+
+    /* App Layout */
+    .app {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      min-width: 200px;
+      background: #070d1a;
+      padding: 24px;
+      color: #b9c2d0;
+    }
+
+    .sidebar h2 {
+      font-size: 16px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 32px;
+      max-width: calc(100vw - 200px);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      color: #9aa4b2;
+      margin-bottom: 24px;
+    }
+
+    /* Controls */
+    .controls {
+      margin-bottom: 24px;
+    }
+
+    select {
+      background: #111a2e;
+      color: #fff;
+      border: 1px solid #2b3a5a;
+      padding: 10px 14px;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    /* Dashboard Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    .left, .right {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Cards */
+    .card {
+      background: linear-gradient(180deg, #052b63, #031c45);
+      border-radius: 20px;
+      padding: 20px;
+      min-height: 220px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #dbe4ff;
+    }
+
+    /* Chart placeholder */
+    .chart-placeholder {
+      width: 100%;
+      height: 160px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9fb3ff;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .main {
+        max-width: 100vw;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="header">
-  <div>
-    <h1>OCTOTHORP</h1>
-    <p>INTEGRATED SOLUTIONS</p>
+  <div class="app">
+
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <p>Overview</p>
+      <p>Machines</p>
+      <p>Energy</p>
+      <p>Air Quality</p>
+      <p>Reports</p>
+    </aside>
+
+    <main class="main">
+      <h1>OCTOTHORP</h1>
+      <div class="subtitle">INTEGRATED SOLUTIONS</div>
+
+      <div class="controls">
+        <label>Total power consumption:</label><br><br>
+        <select>
+          <option>Today</option>
+          <option>This Week</option>
+          <option>This Month</option>
+        </select>
+      </div>
+
+      <div class="dashboard-grid">
+
+        <div class="left">
+          <div class="card">
+            <h3>Power Consumption Trend</h3>
+            <div class="chart-placeholder">Line Chart</div>
+          </div>
+
+          <div class="card">
+            <h3>Air Quality Index</h3>
+            <div class="chart-placeholder">AQI Graph</div>
+          </div>
+        </div>
+
+        <div class="right">
+          <div class="card">
+            <h3>Temperature</h3>
+            <div class="chart-placeholder">Bar Chart</div>
+          </div>
+
+          <div class="card">
+            <h3>Energy Distribution</h3>
+            <div class="chart-placeholder">Pie Chart</div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
   </div>
 
-  <select id="timeRange">
-    <option>Today</option>
-    <option>Weekly</option>
-    <option>Yearly</option>
-  </select>
-</header>
-
-<div class="container">
-  <aside class="sidebar">
-    <span class="active">Dashboard</span>
-  </aside>
-
-  <main class="main">
-
-    <div class="grid">
-      <div class="card wide">
-        <h3>Total Power Consumption</h3>
-        <canvas id="powerChart"></canvas>
-      </div>
-
-      <div class="card">
-        <h3>Temperature</h3>
-        <canvas id="tempChart"></canvas>
-      </div>
-
-      <div class="card wide">
-        <h3>Air Quality Index</h3>
-        <canvas id="airChart"></canvas>
-      </div>
-
-      <div class="card">
-        <h3>Usage Breakdown</h3>
-        <canvas id="pieChart"></canvas>
-      </div>
-    </div>
-
-  </main>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
+
