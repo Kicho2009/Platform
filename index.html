@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Octothorp Integrated Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <h1>OCTOTHORP</h1>
+    <p>INTEGRATED SOLUTIONS</p>
+  </div>
+
+  <select id="timeRange">
+    <option>Today</option>
+    <option>Weekly</option>
+    <option>Yearly</option>
+  </select>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+    <span class="active">Dashboard</span>
+  </aside>
+
+  <main class="main">
+
+    <div class="grid">
+      <div class="card wide">
+        <h3>Total Power Consumption</h3>
+        <canvas id="powerChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>Tem
