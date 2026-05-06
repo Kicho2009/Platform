@@ -1,0 +1,182 @@
+:root {
+  --primary-green: #38b000;
+  --dark-bg: #0b0f0b;
+  --text-light: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.screen.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+/* Welcome Screen */
+#welcome-screen {
+  background: linear-gradient(135deg, #2b9348, #004b23);
+}
+
+.welcome-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.welcome-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+.baby-img {
+  width: 250px;
+  height: auto;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4));
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05); /* slightly soft bg for cutout */
+}
+
+.knock-btn {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  background-color: #ffd166;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #cc9b25, 0 15px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease;
+  position: relative;
+  top: 0;
+}
+
+.knock-btn:active {
+  top: 6px;
+  box-shadow: 0 0 0 #cc9b25, 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Video Screen */
+#video-screen {
+  background-color: #000;
+  transition: none;
+}
+
+#invitation-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Location Screen */
+#location-screen {
+  background: url('../vayansh.png') no-repeat center center / cover; /* Optional fallback */
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../vayansh.png') no-repeat center center / cover;
+  transition: none;
+}
+
+.location-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.location-card-link:hover {
+  transform: scale(1.05);
+}
+
+.location-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 90%;
+}
+
+.location-baby-img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.location-card h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
+  color: #ffd166;
+}
+
+.location-card p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+.map-icon {
+  font-size: 4rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+@media (max-width: 600px) {
+  .welcome-title {
+    font-size: 2rem;
+  }
+  .baby-img {
+    width: 200px;
+  }
+  .location-card {
+    padding: 2rem;
+  }
+  .location-card h2 {
+    font-size: 1.8rem;
+  }
+}
